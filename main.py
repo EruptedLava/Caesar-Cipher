@@ -23,6 +23,7 @@ logo = Fore.GREEN+'''\n\n8888888b.                                 888          
 
 '''+Fore.RESET
 
+
 def encrypt(text,shift):
     text_list = list(text)
 
@@ -64,7 +65,7 @@ def decrypt(text,shift):
             pass
 
     final = ''.join(text_list)
-    print(f"\n The decoded text is : {Fore.BLUE+final+Fore.RESET}")
+    print(f"\n The decoded text is : {Fore.BLUE+final.title()+Fore.RESET}")
 
 
 if __name__ == '__main__':
@@ -76,18 +77,18 @@ if __name__ == '__main__':
         else:
             os.system('cls')
         print(logo)
-        direction = input(Fore.LIGHTBLUE_EX+" Type 'encode' to encrypt, type 'decode' to decrypt:\n "+Fore.RESET)
+        direction = input(Fore.LIGHTBLUE_EX+" Type 'e' to encrypt, type 'd' to decrypt:\n "+Fore.RESET)
         text = input(Fore.GREEN+" Type your message:\n "+Fore.RESET).lower()
         shift = int(input(Fore.GREEN+"\n Type the shift number:\n "+Fore.RESET))
         shift = shift % 26
 
-        if direction == 'decode':
+        if direction == 'd':
             decrypt(text,shift)
-        elif direction == 'encode':
+        elif direction == 'e':
             encrypt(text,shift)
 
-        choice = input("\n\n Type 'yes' if you want to go again. Otherwise, type 'no'  >> ")
-        if choice =="no":
+        choice = input("\n\n Type 'y' if you want to go again. Otherwise, type 'n'  >> ")
+        if choice =="n":
             print(" GoodByee")
             break
             
